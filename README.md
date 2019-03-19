@@ -23,8 +23,8 @@ $`
 \Large P = \frac{\rho A v^3}{2}
 `$
 
-* $`\rho`$ - [air density](air-density) (see formula below)
-* $`A`$ - [blade sweep area](blade-sweep-area) (see formula below)
+* $`\rho`$ - [air density](#air-density) (see formula below)
+* $`A`$ - [blade sweep area](#blade-sweep-area) (see formula below)
 * $`v`$ - wind speed: between 3.6 m/s (8mph) and 24.6 m/s (55mph)
 
 ### Air density
@@ -33,9 +33,9 @@ $`\Large
 \rho = \frac{p}{RT}
 `$
 
-* $`p`$ - [air pressure](air-pressure) (see formula below)
+* $`p`$ - [air pressure](#air-pressure) (see formula below)
 * $`R`$ - air gas constant 287 J/kgK
-* $`T`$ - temperature at altitude (see formula below)
+* $`T`$ - [temperature at altitude](#temperature-at-altitude) (see formula below)
 
 ### Blade sweep area
 
@@ -60,7 +60,7 @@ P = P_s(\frac{T}{T_s})^\frac{-g}{\alpha R}
 
 *The exponent $`\frac{g}{\alpha R}`$ is constant at 5.25*
 
-### Temperature at given altitude
+### Temperature at altitude
 
 $`\Large
 T = T_s - \alpha z
