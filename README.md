@@ -19,8 +19,10 @@ Tool for calculating the energy output of a wind turbine given a number of diffe
 ## Formulas
 ### Power
 
-$\Large P = \frac{\rho A v^3}{2}$
+$`
+\Large P = \frac{\rho A v^3}{2}
+`$
 
-* $\rho$ - air density (see formula below)
-* $A$ - blade swee area (see formula below)
-* $v$ - wind speed between 3.6ms (8mph) and 24.6m/s (55mph)
+* $`\rho`$ - air density (see formula below)
+* $``A``$ - blade swee area (see formula below)
+* $`v`$ - wind speed between 3.6ms (8mph) and 24.6m/s (55mph)
