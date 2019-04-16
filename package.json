@@ -1,0 +1,19 @@
+{
+  "name": "wind-turbine-tool",
+  "version": "1.0.0",
+  "description": "Tool for calculating the energy output of a wind turbine given a number of different parameters.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/academic-technology-brown/wind-turbine-tool.git"
+  },
+  "author": "Brown University",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/academic-technology-brown/wind-turbine-tool/issues"
+  },
+  "homepage": "https://gitlab.com/academic-technology-brown/wind-turbine-tool#readme"
+}
