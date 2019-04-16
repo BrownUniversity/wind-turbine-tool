@@ -1,0 +1,80 @@
+{
+    "input": {
+        "blade_len": 58,
+        "wind_v0": 9.6,
+        "altitude": 1984,
+        "height": 101
+    },
+    "output": {
+        "wind_velocity": 17.4917,
+        "temperature": 280.104,
+        "air_pressure": 128303.3721,
+        "sweep_area": 10568.3177,
+        "air_density": 1.596,
+        "power": 45134824.9267
+    }
+},
+,{
+    "input": {
+        "blade_len": 28,
+        "wind_v0": 11.6,
+        "altitude": 7681,
+        "height": 52
+    },
+    "output": {
+        "wind_velocity": 19.3882,
+        "temperature": 243.0735,
+        "air_pressure": 270110.817,
+        "sweep_area": 2463.0086,
+        "air_density": 3.8719,
+        "power": 34751509.7441
+    }
+},
+,{
+    "input": {
+        "blade_len": 72,
+        "wind_v0": 15.6,
+        "altitude": 5050,
+        "height": 121
+    },
+    "output": {
+        "wind_velocity": 29.0996,
+        "temperature": 260.175,
+        "air_pressure": 189025.4346,
+        "sweep_area": 16286.0163,
+        "air_density": 2.5315,
+        "power": 507946233.9006
+    }
+},
+,{
+    "input": {
+        "blade_len": 73,
+        "wind_v0": 23.6,
+        "altitude": 1353,
+        "height": 79
+    },
+    "output": {
+        "wind_velocity": 41.6489,
+        "temperature": 284.2055,
+        "air_pressure": 118875.9338,
+        "sweep_area": 16741.5473,
+        "air_density": 1.4574,
+        "power": 881364874.5394
+    }
+},
+,{
+    "input": {
+        "blade_len": 37,
+        "wind_v0": 18.6,
+        "altitude": 126,
+        "height": 201
+    },
+    "output": {
+        "wind_velocity": 37.062,
+        "temperature": 292.181,
+        "air_pressure": 102799.6424,
+        "sweep_area": 4300.8403,
+        "air_density": 1.2259,
+        "power": 134204276.808
+    }
+},
