@@ -58,7 +58,7 @@ P = P_s(\frac{T}{T_s})^\frac{-g}{\alpha R}
 * $`T_s`$ - temperature at sea level
 * $`P_s`$ - pressure at sea level 101,300 Pa.
 
-*The exponent $`\frac{g}{\alpha R}`$ is constant at 5.25*
+*The exponent $`\frac{g}{\alpha R}`$ is constant at -5.25*
 
 ### Temperature at altitude
 
