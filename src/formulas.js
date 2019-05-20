@@ -1,16 +1,25 @@
 /* Formulas */
 
-/*  v_2 = v_1 * z^n
+/*  v_w = v_r * (h / h_r)^a
 *
-* 	v_1 : initial wind velocity
-* 	  z : elevation (20-200m)
-*			n : 0.13 (constant)
+* 	v_r : wind velocity at reference height
+*		h : height of turbine: betweeen 20 and 200 m
+* 	h_r : reference height: 10 m
+*		a : Hellman exponent: (0.3)
 */
-module.exports.wind_velocity = function(v_1, z) {
-	var n = 0.13;
+module.exports.wind_velocity_at_elevation = function(v_r, h) {
+	var a = 0.3;
+	var h_r = 10;
 
-	return v_1 * Math.pow(z, n);
+	// Check for values under reference height
+	if( h < h_r ) {
+		return v_r * Math.pow((h / h_r), a);
+	} else {
+		//Otherwise return input velocity
+		return v_r;
+	}
 }
+
 
 /* 	  T = T_s − (a * z)
 *
