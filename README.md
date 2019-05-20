@@ -72,11 +72,12 @@ T = T_s - \alpha z
 
 ### Wind speed at tower height
 
-$`\Large
-v_2 = v_1 z^n
+$`
+\Large v_w = v_r (\frac{h}{h_r})^\alpha
 `$
 
-* $`v_1`$ - initial wind velocity prior to calculation
-* $`v_2`$ - wind velocity after calculation
-* $`z`$ - elevation of turbine: between 20 and 200 m
-* $`n`$ - constant 0.13
+* $`v_r`$ - wind velocity at reference height
+* $`v_w`$ - wind velocity with effect of wind shear (after calculation)
+* $`h`$ - height of turbine: between 20 and 200 m
+* $`h_r`$ - reference height (10 m)
+* $`\alpha`$ - Hellman exponent (0.3)
