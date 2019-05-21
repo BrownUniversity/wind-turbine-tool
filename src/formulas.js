@@ -1,15 +1,17 @@
 /* Formulas */
 
-/*  v_w = v_r * (h / h_r)^a
-*
-* 	v_r : wind velocity at reference height
-*		h : height of turbine: betweeen 20 and 200 m
-* 	h_r : reference height: 10 m
-*		a : Hellman exponent: (0.3)
-*/
+/**
+ * Calculate wind velocity at a given tower height adjusting for wind shear
+ * @see {@link https://en.wikipedia.org/wiki/Wind_gradient#Wind_turbines}
+ * 
+ * @param {number} v_r Wind velocity (m/s) at reference height 10m (without wind shear adjustment)
+ * @param {number} h Height (m) of the wind turbine, should be between 20 and 200m
+ * 
+ * @returns {number} Wind velocity adjusted for wind shear
+ */
 module.exports.wind_velocity_at_elevation = function(v_r, h) {
-	var a = 0.3;
-	var h_r = 10;
+	var a = 0.3;  // Hellman exponent
+	var h_r = 10; // Reference height (maximum height affected by wind shear)
 
 	// Check for values under reference height
 	if( h < h_r ) {
