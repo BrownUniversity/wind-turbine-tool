@@ -36,16 +36,6 @@ module.exports.temp_at = function(a) {
 	return T_s - (a * z);
 }
 
-/* 	  P = P_s (T/T_s)^{-g/(a*R)}
-*
-*		  g : gravitational acceleration 9.8m/s^2
-*			R : air gas constant 287 J/kgK
-* 		a : atmospheric lapse rate 0.0065 K/m
-*			T : temperature at altitude
-* 	T_s : temperature at sea level
-*   P_s : pressure at sea level 101,300 Pa
-*/
-
 /**
  * Calculate the air pressure at altitude 
  * 
@@ -63,10 +53,13 @@ module.exports.air_pressure = function(T) {
 	return P_s * Math.pow(T / T_s, -5.25);
 }
 
-/* 	  S = PI * L^2
-*
-*			L : blade length (20-80m)
-*/
+/**
+ * Calculate the area that the blades of the turbine sweep (area of circle)
+ * 
+ * @param {number} L Length (m) of the blade, should be between 20 and 80m
+ * 
+ * @returns {number} Blade sweep area (m^2)
+ */
 module.exports.blade_sweep_area = function(L) {
 	return Math.PI * Math.pow(L, 2);
 }
