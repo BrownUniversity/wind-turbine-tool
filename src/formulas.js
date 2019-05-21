@@ -76,18 +76,18 @@ module.exports.air_density = function(p, T) {
 	return p / (R * T);
 }
 
-/* 	  P = (p * A * v^3) / 2
-*
-*			p : air pressure
-*			A : blade sweep area
-* 		v : wind speed (3.6-24.6m/s)
-*/
+/**
+ * Calculate the power in Watts (J/s)
+ * 
+ * @param {number} p Air pressure (Pa)
+ * @param {number} A Blade sweep area (m^2)
+ * @param {number} v Wind velocity, should be between 3.6 and 24.6 m/s
+ * 
+ * @returns {number} Power in wWtts (J/s)
+ */
 module.exports.power = function(p, A, v) {
 	return (p * A * Math.pow(v, 3)) / 2
 }
-
-
-
 
 // helper function to generate random values in a range
 module.exports.random = function(min, max) {
