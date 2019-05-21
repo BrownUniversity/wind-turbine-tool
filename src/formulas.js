@@ -22,16 +22,16 @@ module.exports.wind_velocity_at_elevation = function(v_r, h) {
 	}
 }
 
-
-/* 	  T = T_s − (a * z)
-*
-*		T_s : temperature at sea level assume 293°K
-*			a : altitude (0-10000m)
-* 		z : atmospheric lapse rate 0.0065 K/m
-*/
+/**
+ * Calculate the temperature at an altitude given temperature at sea level of 293° Kelvin.
+ * 
+ * @param {number} a Altitude (m), range should be between 0 and 10,000m
+ * 
+ * @returns {number} Temperature (K) at altitude
+ */
 module.exports.temp_at = function(a) {
-	var T_s = 293,
-			z = 0.0065;
+	var T_s = 293,   // Temperature at sea level assumed to be 293°K (68°F)
+			z = 0.0065;  // Atmospheric lapse rate (K/m)
 
 	return T_s - (a * z);
 }
