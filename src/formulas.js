@@ -45,12 +45,20 @@ module.exports.temp_at = function(a) {
 * 	T_s : temperature at sea level
 *   P_s : pressure at sea level 101,300 Pa
 */
+
+/**
+ * Calculate the air pressure at altitude 
+ * 
+ * @param {number} T Temperature (K) at altitude
+ * 
+ * @returns {number} Pressure (Pa) at altitude
+ */
 module.exports.air_pressure = function(T) {
-	var g = 9.8,
-			R = 287,
-			a = 0.0065,
-			T_s = 293,
-			P_s = 101300;
+	var g = 9.8,       // Gravitational acceleration (m/s^2)
+			R = 287,       // Air gas constant (J/kgK)
+			a = 0.0065,    // Atmospheric lapse rate (K/m)
+			T_s = 293,     // Temperature (K) at sea level
+			P_s = 101300;  // Air pressure (Pa) at sea level
 
 	return P_s * Math.pow(T / T_s, -5.25);
 }
