@@ -89,7 +89,14 @@ module.exports.power = function(p, A, v) {
 	return (p * A * Math.pow(v, 3)) / 2
 }
 
-// helper function to generate random values in a range
+/**
+ * Generate random integer within a given range 
+ * 
+ * @param {number} min Minimum value to return
+ * @param {number} max Maximum value to return
+ * 
+ * @return {number} Random integer
+ */
 module.exports.random = function(min, max) {
 	return Math.floor(Math.random() * max) + min;
 }
