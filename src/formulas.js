@@ -83,14 +83,15 @@ function air_density(p, T) {
 /**
  * Calculate the power in Watts (J/s)
  * 
- * @param {number} p Air pressure (Pa)
+ * @param {number} d Air density (kg/m^3)
  * @param {number} A Blade sweep area (m^2)
  * @param {number} v Wind velocity, should be between 3.6 and 24.6 m/s
  * 
  * @returns {number} Power in wWtts (J/s)
  */
-function power(p, A, v) {
-  return (p * A * Math.pow(v, 3)) / 2
+function power(d, A, v) {
+  return (d * A * Math.pow(v, 3)) / 2
+}
 }
 
 /**
@@ -104,10 +105,11 @@ function power(p, A, v) {
 function calculateTurbinePower( windVelocity, towerHeight, bladeLength, elevation) {
   const temperature = temp_at(elevation);
   const airPressure = air_pressure(temperature);
+  const airDensity = air_density(airPressure, temperature);
   const bladeArea = blade_sweep_area(bladeLength);
   const adjustedWindSpeed = wind_velocity_at_elevation(windVelocity, towerHeight);
   
-  return power(airPressure, bladeArea, adjustedWindSpeed);
+  return power(airDensity, bladeArea, adjustedWindSpeed);
 }
 
 export {calculateTurbinePower}
