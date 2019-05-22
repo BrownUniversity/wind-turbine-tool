@@ -43,14 +43,16 @@ module.exports.temp_at = function(a) {
  * 
  * @returns {number} Pressure (Pa) at altitude
  */
-module.exports.air_pressure = function(T) {
-	var g = 9.8,       // Gravitational acceleration (m/s^2)
+function air_pressure(T) {
+  const g = 9.8,       // Gravitational acceleration (m/s^2)
 			R = 287,       // Air gas constant (J/kgK)
 			a = 0.0065,    // Atmospheric lapse rate (K/m)
 			T_s = 293,     // Temperature (K) at sea level
 			P_s = 101300;  // Air pressure (Pa) at sea level
 
-	return P_s * Math.pow(T / T_s, -5.25);
+	const exponent = -g / (a * R);
+
+  return P_s * Math.pow(T / T_s, exponent);
 }
 
 /**
