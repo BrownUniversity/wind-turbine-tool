@@ -10,8 +10,8 @@
  * @returns {number} Wind velocity adjusted for wind shear
  */
 function wind_velocity_at_elevation(v_r, h) {
-  var a = 0.3;  // Hellman exponent
-  var h_r = 10; // Reference height (maximum height affected by wind shear)
+  const a = 0.3;  // Hellman exponent
+  const h_r = 10; // Reference height (maximum height affected by wind shear)
 
   // Check for values under reference height
   if( h < h_r ) {
@@ -30,7 +30,7 @@ function wind_velocity_at_elevation(v_r, h) {
  * @returns {number} Temperature (K) at altitude
  */
 function temp_at(a) {
-  var T_s = 293,   // Temperature at sea level assumed to be 293°K (68°F)
+  const T_s = 293,   // Temperature at sea level assumed to be 293°K (68°F)
       z = 0.0065;  // Atmospheric lapse rate (K/m)
 
   return T_s - (a * z);
@@ -44,7 +44,7 @@ function temp_at(a) {
  * @returns {number} Pressure (Pa) at altitude
  */
 function air_pressure(T) {
-  var g = 9.8,       // Gravitational acceleration (m/s^2)
+  const g = 9.8,       // Gravitational acceleration (m/s^2)
       R = 287,       // Air gas constant (J/kgK)
       a = 0.0065,    // Atmospheric lapse rate (K/m)
       T_s = 293,     // Temperature (K) at sea level
@@ -73,7 +73,7 @@ function blade_sweep_area(L) {
 *     T : temperature at altitude
 */
 function air_density(p, T) {
-  var R = 287;
+  const R = 287;
 
   return p / (R * T);
 }
