@@ -92,6 +92,13 @@ function air_density(p, T) {
 function power(d, A, v) {
   return (d * A * Math.pow(v, 3)) / 2
 }
+
+function convertMPHtoMPS( mph ) {
+	return mph * 0.44704;
+}
+
+function convertFeetToMeters( feet ){
+	return feet * 0.3048;
 }
 
 /**
@@ -112,4 +119,4 @@ function calculateTurbinePower( windVelocity, towerHeight, bladeLength, elevatio
   return power(airDensity, bladeArea, adjustedWindSpeed);
 }
 
-export {calculateTurbinePower}
+export {calculateTurbinePower, convertMPHtoMPS, convertFeetToMeters};
