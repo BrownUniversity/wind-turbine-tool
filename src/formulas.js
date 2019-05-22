@@ -10,16 +10,16 @@
  * @returns {number} Wind velocity adjusted for wind shear
  */
 function wind_velocity_at_elevation(v_r, h) {
-	var a = 0.3;  // Hellman exponent
-	var h_r = 10; // Reference height (maximum height affected by wind shear)
+  var a = 0.3;  // Hellman exponent
+  var h_r = 10; // Reference height (maximum height affected by wind shear)
 
-	// Check for values under reference height
-	if( h < h_r ) {
-		return v_r * Math.pow((h / h_r), a);
-	} else {
-		//Otherwise return input velocity
-		return v_r;
-	}
+  // Check for values under reference height
+  if( h < h_r ) {
+    return v_r * Math.pow((h / h_r), a);
+  } else {
+    //Otherwise return input velocity
+    return v_r;
+  }
 }
 
 /**
@@ -30,10 +30,10 @@ function wind_velocity_at_elevation(v_r, h) {
  * @returns {number} Temperature (K) at altitude
  */
 function temp_at(a) {
-	var T_s = 293,   // Temperature at sea level assumed to be 293°K (68°F)
-			z = 0.0065;  // Atmospheric lapse rate (K/m)
+  var T_s = 293,   // Temperature at sea level assumed to be 293°K (68°F)
+      z = 0.0065;  // Atmospheric lapse rate (K/m)
 
-	return T_s - (a * z);
+  return T_s - (a * z);
 }
 
 /**
@@ -44,12 +44,12 @@ function temp_at(a) {
  * @returns {number} Pressure (Pa) at altitude
  */
 function air_pressure(T) {
-  const g = 9.8,       // Gravitational acceleration (m/s^2)
-			R = 287,       // Air gas constant (J/kgK)
-			a = 0.0065,    // Atmospheric lapse rate (K/m)
-			T_s = 293,     // Temperature (K) at sea level
+  var g = 9.8,       // Gravitational acceleration (m/s^2)
+      R = 287,       // Air gas constant (J/kgK)
+      a = 0.0065,    // Atmospheric lapse rate (K/m)
+      T_s = 293,     // Temperature (K) at sea level
 			P_s = 101300;  // Air pressure (Pa) at sea level
-
+			
 	const exponent = -g / (a * R);
 
   return P_s * Math.pow(T / T_s, exponent);
@@ -63,7 +63,7 @@ function air_pressure(T) {
  * @returns {number} Blade sweep area (m^2)
  */
 function blade_sweep_area(L) {
-	return Math.PI * Math.pow(L, 2);
+  return Math.PI * Math.pow(L, 2);
 }
 
 /*   _p_ = p/(RT)
@@ -73,9 +73,9 @@ function blade_sweep_area(L) {
 *     T : temperature at altitude
 */
 function air_density(p, T) {
-	var R = 287;
+  var R = 287;
 
-	return p / (R * T);
+  return p / (R * T);
 }
 
 /**
@@ -88,17 +88,24 @@ function air_density(p, T) {
  * @returns {number} Power in wWtts (J/s)
  */
 function power(p, A, v) {
-	return (p * A * Math.pow(v, 3)) / 2
+  return (p * A * Math.pow(v, 3)) / 2
 }
 
 /**
- * Generate random integer within a given range 
+ * Calculate power of turbine in Watts (J/s)
  * 
- * @param {number} min Minimum value to return
- * @param {number} max Maximum value to return
- * 
- * @return {number} Random integer
+ * @param {*} windVelocity 
+ * @param {*} towerHeight 
+ * @param {*} bladeLength 
+ * @param {*} elevation 
  */
-module.exports.random = function(min, max) {
-	return Math.floor(Math.random() * max) + min;
+function calculateTurbinePower( windVelocity, towerHeight, bladeLength, elevation) {
+  const temperature = temp_at(elevation);
+  const airPressure = air_pressure(temperature);
+  const bladeArea = blade_sweep_area(bladeLength);
+  const adjustedWindSpeed = wind_velocity_at_elevation(windVelocity, towerHeight);
+  
+  return power(airPressure, bladeArea, adjustedWindSpeed);
 }
+
+export {calculateTurbinePower}
