@@ -66,14 +66,16 @@ function blade_sweep_area(L) {
   return Math.PI * Math.pow(L, 2);
 }
 
-/*   _p_ = p/(RT)
-*
-*      p : air pressure
-*      R : air gas constant 287 J/kgK
-*     T : temperature at altitude
-*/
+/**
+ * Calculate air density from pressure and temperature.
+ * 
+ * @param {number} p Air pressure (Pa)
+ * @param {number} T Temperature (K)
+ * 
+ * @returns Air density
+ */
 function air_density(p, T) {
-  const R = 287;
+  const R = 287;   // Air gas constant (J/kgK)
 
   return p / (R * T);
 }
