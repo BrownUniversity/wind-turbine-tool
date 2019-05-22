@@ -9,7 +9,7 @@
  * 
  * @returns {number} Wind velocity adjusted for wind shear
  */
-module.exports.wind_velocity_at_elevation = function(v_r, h) {
+function wind_velocity_at_elevation(v_r, h) {
 	var a = 0.3;  // Hellman exponent
 	var h_r = 10; // Reference height (maximum height affected by wind shear)
 
@@ -29,7 +29,7 @@ module.exports.wind_velocity_at_elevation = function(v_r, h) {
  * 
  * @returns {number} Temperature (K) at altitude
  */
-module.exports.temp_at = function(a) {
+function temp_at(a) {
 	var T_s = 293,   // Temperature at sea level assumed to be 293°K (68°F)
 			z = 0.0065;  // Atmospheric lapse rate (K/m)
 
@@ -62,17 +62,17 @@ function air_pressure(T) {
  * 
  * @returns {number} Blade sweep area (m^2)
  */
-module.exports.blade_sweep_area = function(L) {
+function blade_sweep_area(L) {
 	return Math.PI * Math.pow(L, 2);
 }
 
-/* 	_p_ = p/(RT)
+/*   _p_ = p/(RT)
 *
-*			p : air pressure
-*			R : air gas constant 287 J/kgK
-* 		T : temperature at altitude
+*      p : air pressure
+*      R : air gas constant 287 J/kgK
+*     T : temperature at altitude
 */
-module.exports.air_density = function(p, T) {
+function air_density(p, T) {
 	var R = 287;
 
 	return p / (R * T);
@@ -87,7 +87,7 @@ module.exports.air_density = function(p, T) {
  * 
  * @returns {number} Power in wWtts (J/s)
  */
-module.exports.power = function(p, A, v) {
+function power(p, A, v) {
 	return (p * A * Math.pow(v, 3)) / 2
 }
 
