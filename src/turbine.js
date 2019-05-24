@@ -1,7 +1,5 @@
 /* Turbine calculation formulas */
 
-class ValidationError extends Error {}
-
 /**
  * Calculate wind velocity at a given tower height adjusting for wind shear
  * @see {@link https://en.wikipedia.org/wiki/Wind_gradient#Wind_turbines}
@@ -125,10 +123,10 @@ function convertFeetToMeters(feet) {
  */
 function checkWithinRange(value, min, max) {
   if (typeof value !== 'number') {
-    throw new ValidationError(`'${value}' is not a number.`);
+    throw new Error(`'${value}' is not a number.`);
   }
   if (value < min || value > max) {
-    throw new ValidationError(`'${value}' is not between ${min} and ${max}.`);
+    throw new Error(`'${value}' is not between ${min} and ${max}.`);
   }
 }
 
@@ -142,7 +140,7 @@ function checkWithinRange(value, min, max) {
  */
 function calculateTurbinePower(windVelocity, towerHeight, bladeLength, elevation) {
   if( bladeLength > towerHeight) {
-    throw new ValidationError("Blade length cannot be greater than tower height.");
+    throw new Error("Blade length cannot be greater than tower height.");
   }
   const temperature = temp_at(elevation);
   const airPressure = air_pressure(temperature);
@@ -157,5 +155,4 @@ export {
   calculateTurbinePower,
   convertMPHtoMPS,
   convertFeetToMeters,
-  ValidationError
 };
