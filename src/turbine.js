@@ -96,15 +96,17 @@ function air_density(p, T) {
  * 
  * @param {number} d Air density (kg/m^3)
  * @param {number} A Blade sweep area (m^2)
- * @param {number} v Wind velocity, should be between 3.6 and 24.6 m/s
+ * @param {number} v Wind velocity, should be between 0 and 24.6 m/s, values below 3.6 m/s will result in no power
  * 
  * @returns {number} Power in wWtts (J/s)
  */
 function power(d, A, v) {
   // Check if velocity is within range
-  checkWithinRange(v, 3.6, 24.6);
-
-  return (d * A * Math.pow(v, 3)) / 2
+  if( v >= 3.6 && v <= 24.6) {
+    return (d * A * Math.pow(v, 3)) / 2
+  } else {
+    return 0;
+  }
 }
 
 function convertMPHtoMPS(mph) {
