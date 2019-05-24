@@ -16,8 +16,8 @@ class PowerCalculator extends React.Component {
 
     this.state = {
       windVelocity: 10,
-      towerHeight: 20,
-      bladeLength: 30,
+      towerHeight: 30,
+      bladeLength: 20,
       elevation: 40
     }
 
