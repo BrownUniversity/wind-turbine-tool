@@ -11,7 +11,7 @@
  */
 function wind_velocity_at_elevation(v_r, h) {
   const a = 0.3;  // Hellman exponent
-  const h_r = 10; // Reference height (maximum height affected by wind shear)
+  const h_r = 95; // Reference height in meters(maximum height affected by wind shear)
 
   // Check for values under reference height
   if( h < h_r ) {
