@@ -1,4 +1,6 @@
-/* Formulas */
+/* Turbine calculation formulas */
+
+class ValidationError extends Error {}
 
 /**
  * Calculate wind velocity at a given tower height adjusting for wind shear
@@ -121,10 +123,10 @@ function convertFeetToMeters(feet) {
  */
 function checkWithinRange(value, min, max) {
   if (typeof value !== 'number') {
-    throw new Error(`'${value}' is not a number.`);
+    throw new ValidationError(`'${value}' is not a number.`);
   }
   if (value < min || value > max) {
-    throw new Error(`'${value}' is not between ${min} and ${max}.`);
+    throw new ValidationError(`'${value}' is not between ${min} and ${max}.`);
   }
 }
 
@@ -137,25 +139,21 @@ function checkWithinRange(value, min, max) {
  * @param {*} elevation 
  */
 function calculateTurbinePower(windVelocity, towerHeight, bladeLength, elevation) {
-  try {
-
-    if( bladeLength > towerHeight) {
-      throw new Error("Blade length cannot be greater than tower height.");
-    }
-    const temperature = temp_at(elevation);
-    const airPressure = air_pressure(temperature);
-    const airDensity = air_density(airPressure, temperature);
-    const bladeArea = blade_sweep_area(bladeLength);
-    const adjustedWindSpeed = wind_velocity_at_elevation(windVelocity, towerHeight);
-
-    return power(airDensity, bladeArea, adjustedWindSpeed);
-  } catch (error) {
-    throw error;
+  if( bladeLength > towerHeight) {
+    throw new ValidationError("Blade length cannot be greater than tower height.");
   }
+  const temperature = temp_at(elevation);
+  const airPressure = air_pressure(temperature);
+  const airDensity = air_density(airPressure, temperature);
+  const bladeArea = blade_sweep_area(bladeLength);
+  const adjustedWindSpeed = wind_velocity_at_elevation(windVelocity, towerHeight);
+
+  return power(airDensity, bladeArea, adjustedWindSpeed);
 }
 
 export {
   calculateTurbinePower,
   convertMPHtoMPS,
-  convertFeetToMeters
+  convertFeetToMeters,
+  ValidationError
 };
