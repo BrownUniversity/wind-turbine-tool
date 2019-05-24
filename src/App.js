@@ -1,5 +1,7 @@
 import React from 'react';
+import PowerCalculator from './TurbineCalculator.js';
 import './App.css';
+
 
 function App() {
   return (
@@ -8,8 +10,9 @@ function App() {
         <h1>
           Wind Turbine Tool
         </h1>
-        <p>Tool for calculating power of a wind turbine.</p>
+        <PowerCalculator />
       </header>
+      
     </div>
   );
 }
