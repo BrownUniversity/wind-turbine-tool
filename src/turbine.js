@@ -30,8 +30,13 @@ function wind_velocity_at_elevation(v_r, h) {
  * @returns {number} Temperature (K) at altitude
  */
 function temp_at(a) {
+  const range = {min: 0, max: 10000};
   const T_s = 293,   // Temperature at sea level assumed to be 293°K (68°F)
-      z = 0.0065;  // Atmospheric lapse rate (K/m)
+       z = 0.0065;  // Atmospheric lapse rate (K/m)
+  
+  if( typeof a !== 'number' || a < range.min || a > range.max ){
+    throw new Error("Altitude out of range.");
+  }
 
   return T_s - (a * z);
 }
