@@ -110,6 +110,14 @@ function power(d, A, v) {
   }
 }
 
+function governor(ratedSpeed, currentSpeed) {
+  if( currentSpeed < ratedSpeed ) {
+    return currentSpeed;
+  }
+
+  return ratedSpeed;
+}
+
 function convertMPHtoMPS(mph) {
   return mph * 0.44704;
 }
@@ -145,11 +153,14 @@ function calculateTurbinePower(windVelocity, towerHeight, bladeLength, elevation
   if( bladeLength > towerHeight) {
     throw new Error("Blade length cannot be greater than tower height.");
   }
+
   const temperature = temp_at(elevation);
   const airPressure = air_pressure(temperature);
   const airDensity = air_density(airPressure, temperature);
   const bladeArea = blade_sweep_area(bladeLength);
-  const adjustedWindSpeed = wind_velocity_at_elevation(windVelocity, towerHeight);
+  const windSpeedAtTowerHeight = wind_velocity_at_elevation(windVelocity, towerHeight);
+  const adjustedWindSpeed = governor(15, windSpeedAtTowerHeight);
+
 
   return power(airDensity, bladeArea, adjustedWindSpeed);
 }
