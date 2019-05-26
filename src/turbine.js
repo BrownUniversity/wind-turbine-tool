@@ -100,9 +100,11 @@ function air_density(p, T) {
  * @returns {number} Power in wWtts (J/s)
  */
 function power(d, A, v) {
+  const c = 0.33; // Power coefficient (maximum theoretical value is 0.593)
+
   // Check if velocity is within range
   if( v >= 3.6 && v <= 24.6) {
-    return (d * A * Math.pow(v, 3)) / 2
+    return (c * d * A * Math.pow(v, 3)) / 2
   } else {
     return 0;
   }
@@ -148,8 +150,6 @@ function calculateTurbinePower(windVelocity, towerHeight, bladeLength, elevation
   const airDensity = air_density(airPressure, temperature);
   const bladeArea = blade_sweep_area(bladeLength);
   const adjustedWindSpeed = wind_velocity_at_elevation(windVelocity, towerHeight);
-
-  console.log(temperature, airPressure, airDensity)
 
   return power(airDensity, bladeArea, adjustedWindSpeed);
 }
