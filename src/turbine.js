@@ -56,7 +56,8 @@ function air_pressure(T) {
     T_s = 293, // Temperature (K) at sea level
     P_s = 101300; // Air pressure (Pa) at sea level
 
-  const exponent = -g / (a * R);
+  const exponent = g / (a * R);
+  console.log(exponent)
 
   return P_s * Math.pow(T / T_s, exponent);
 }
@@ -147,6 +148,8 @@ function calculateTurbinePower(windVelocity, towerHeight, bladeLength, elevation
   const airDensity = air_density(airPressure, temperature);
   const bladeArea = blade_sweep_area(bladeLength);
   const adjustedWindSpeed = wind_velocity_at_elevation(windVelocity, towerHeight);
+
+  console.log(temperature, airPressure, airDensity)
 
   return power(airDensity, bladeArea, adjustedWindSpeed);
 }
