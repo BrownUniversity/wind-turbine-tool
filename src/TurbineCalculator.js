@@ -7,10 +7,10 @@ class PowerCalculator extends React.Component {
     super();
 
     this.state = {
-      windVelocity: 10,
-      towerHeight: 30,
-      bladeLength: 20,
-      elevation: 40
+      windVelocity: 0,
+      towerHeight: 80,
+      bladeLength: 30,
+      altitude: 0
     }
 
     this.update = this.update.bind(this);
