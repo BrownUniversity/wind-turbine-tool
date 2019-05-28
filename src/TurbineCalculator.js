@@ -32,6 +32,8 @@ class PowerCalculator extends React.Component {
       <form onChange={this.formUpdate}>
         <InputField 
           name="bladeLength" 
+          min="20"
+          max={Math.min(80, this.state.towerHeight)}
           value={this.state.bladeLength} 
 					label="Blade length" 
 					unit="m"
@@ -39,26 +41,32 @@ class PowerCalculator extends React.Component {
         />
         <InputField 
           name="windVelocity" 
+          min="0"
+          max="24.6"
           value={this.state.windVelocity} 
-					label="Wind speed" 
+          label="Wind velocity" 
 					unit="m/s"
           onChange={this.update}
         />
         <InputField 
-          name="elevation" 
-          value={this.state.elevation} 
-					label="Elevation" 
+          name="altitude" 
+          min="0"
+          max="10000"
+          value={this.state.altitude} 
+          label="Altitude" 
 					unit="m"
           onChange={this.update}
         />
 				<InputField 
           name="towerHeight" 
+          min={Math.max(20, this.state.bladeLength)}
+          max="200"
           value={this.state.towerHeight} 
 					label="Tower height" 
 					unit="m"
           onChange={this.update}
         />
-        <h3 className="results">{this.calculatePower()} KW</h3>
+        <h3 className="results">{this.calculatePower()}</h3>
       </form>
     )
   }
