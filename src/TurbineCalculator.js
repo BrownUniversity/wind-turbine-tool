@@ -23,8 +23,12 @@ class PowerCalculator extends React.Component {
   }
 
   calculatePower() {
-		const powerInWatts = calculateTurbinePower(this.state.windVelocity, this.state.towerHeight, this.state.bladeLength, this.state.elevation);
-    return (powerInWatts/1000).toLocaleString(undefined, { maximumFractionDigits: 0 });
+    try {
+      const powerInWatts = calculateTurbinePower(this.state.windVelocity, this.state.towerHeight, this.state.bladeLength, this.state.altitude);
+      return (powerInWatts/1000).toLocaleString(undefined, { maximumFractionDigits: 0 })  + " KW";
+    } catch( error ) {
+      return error.message;
+    }
   }
   
   render() {
