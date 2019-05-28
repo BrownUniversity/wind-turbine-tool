@@ -1,24 +1,16 @@
 import React from 'react';
 import {calculateTurbinePower} from './turbine.js';
-
-const InputField = (props) => {
-  return (
-    <div className="calculator-input">
-      <label htmlFor={props.name}>{props.label}</label>
-      <input name={props.name} type="number" style={{margin: "0px 10px"}} {...props} /> {props.unit}<br/>
-    </div>
-  )
-}
+import InputField from './InputField.js';
 
 class PowerCalculator extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      windVelocity: 10,
-      towerHeight: 20,
+      windVelocity: 0,
+      towerHeight: 80,
       bladeLength: 30,
-      elevation: 40
+      altitude: 0
     }
 
     this.update = this.update.bind(this);
@@ -31,8 +23,12 @@ class PowerCalculator extends React.Component {
   }
 
   calculatePower() {
-		const powerInWatts = calculateTurbinePower(this.state.windVelocity, this.state.towerHeight, this.state.bladeLength, this.state.elevation);
-    return (powerInWatts/1000).toLocaleString(undefined, { maximumFractionDigits: 0 });
+    try {
+      const powerInWatts = calculateTurbinePower(this.state.windVelocity, this.state.towerHeight, this.state.bladeLength, this.state.altitude);
+      return (powerInWatts/1000).toLocaleString(undefined, { maximumFractionDigits: 0 })  + " KW";
+    } catch( error ) {
+      return error.message;
+    }
   }
   
   render() {
@@ -40,6 +36,8 @@ class PowerCalculator extends React.Component {
       <form onChange={this.formUpdate}>
         <InputField 
           name="bladeLength" 
+          min="20"
+          max={Math.min(80, this.state.towerHeight)}
           value={this.state.bladeLength} 
 					label="Blade length" 
 					unit="m"
@@ -47,26 +45,32 @@ class PowerCalculator extends React.Component {
         />
         <InputField 
           name="windVelocity" 
+          min="0"
+          max="24.6"
           value={this.state.windVelocity} 
-					label="Wind speed" 
+          label="Wind velocity" 
 					unit="m/s"
           onChange={this.update}
         />
         <InputField 
-          name="elevation" 
-          value={this.state.elevation} 
-					label="Elevation" 
+          name="altitude" 
+          min="0"
+          max="10000"
+          value={this.state.altitude} 
+          label="Altitude" 
 					unit="m"
           onChange={this.update}
         />
 				<InputField 
           name="towerHeight" 
+          min={Math.max(20, this.state.bladeLength)}
+          max="200"
           value={this.state.towerHeight} 
 					label="Tower height" 
 					unit="m"
           onChange={this.update}
         />
-        <h3 className="results">{this.calculatePower()} KW</h3>
+        <h3 className="results">{this.calculatePower()}</h3>
       </form>
     )
   }
