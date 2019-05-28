@@ -1,14 +1,6 @@
 import React from 'react';
 import {calculateTurbinePower} from './turbine.js';
-
-const InputField = (props) => {
-  return (
-    <div className="calculator-input">
-      <label htmlFor={props.name}>{props.label}</label>
-      <input name={props.name} type="number" style={{margin: "0px 10px"}} {...props} /> {props.unit}<br/>
-    </div>
-  )
-}
+import InputField from './InputField.js';
 
 class PowerCalculator extends React.Component {
   constructor() {
