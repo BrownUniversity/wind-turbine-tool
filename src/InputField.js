@@ -5,7 +5,7 @@ function InputField(props){
     <div className="input-field">
       <label htmlFor={props.name}>{props.label}</label>
       <input name={props.name+"-slider"} type="range" style={{margin: "0px 10px"}} {...props} />
-      <input name={props.name} type="number" style={{margin: "0px 10px"}} {...props} /> {props.unit}
+      <span class="value">{props.value} <span class="unit">{props.unit}</span></span>
     </div>
   );
 }
