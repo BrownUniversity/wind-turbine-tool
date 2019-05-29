@@ -1,6 +1,5 @@
 /* TurbineCalculator component styles */
 
-.input-fields {
-	display: block;
-	border: 1px solid red;
+.inputs {
+	max-width: 40rem;
 }

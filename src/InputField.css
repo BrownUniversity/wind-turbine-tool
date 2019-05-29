@@ -1,1 +1,16 @@
 /* InputField component styles */
+
+.input-field {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.input-field label {
+	width: 35%;
+	text-align: right;
+}
+
+.input-field input[type=range] {
+	width: 40%;
+}
