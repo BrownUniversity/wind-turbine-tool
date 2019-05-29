@@ -37,7 +37,9 @@ class TurbineCalculator extends React.Component {
 
     return (
       <div className="turbine-calculator">
+        <h1>Calculating wind power</h1>
         <TurbineVisual />
+        <h2 className="results">{this.calculatePower()}</h2>
         <form className="inputs" onChange={this.formUpdate}>
           <InputField 
             name="bladeLength" 
@@ -76,7 +78,6 @@ class TurbineCalculator extends React.Component {
             onChange={this.update}
           />
         </form>
-        <h2 className="results">{this.calculatePower()}</h2>
       </div>
     )
   }
