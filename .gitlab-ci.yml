@@ -28,4 +28,4 @@ pages:
     paths:
     - public # The built files for Gitlab Pages to serve
   only:
-    - production # Only run on production branch
+    - master # Only run on master branch
