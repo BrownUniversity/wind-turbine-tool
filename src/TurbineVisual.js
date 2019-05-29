@@ -6,3 +6,5 @@ function TurbineVisual(props) {
 
 	return <div className="turbine-visual"></div>
 }
+
+export default TurbineVisual;
