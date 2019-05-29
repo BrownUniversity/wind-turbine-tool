@@ -2,17 +2,16 @@ import React from 'react';
 import TurbineCalculator from './TurbineCalculator.js';
 import './App.css';
 
-
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="app">
+      <header className="app-header">
         <h1>
-          Wind Turbine Tool
+          Calculating wind power
         </h1>
-        <TurbineCalculator />
+        
       </header>
-      
+      <TurbineCalculator />
     </div>
   );
 }
