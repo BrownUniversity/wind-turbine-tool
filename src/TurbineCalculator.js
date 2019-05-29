@@ -2,7 +2,7 @@ import React from 'react';
 import {calculateTurbinePower} from './turbine.js';
 import InputField from './InputField.js';
 
-class PowerCalculator extends React.Component {
+class TurbineCalculator extends React.Component {
   constructor() {
     super();
 
@@ -77,4 +77,4 @@ class PowerCalculator extends React.Component {
 }
 
 
-export default PowerCalculator;
+export default TurbineCalculator;

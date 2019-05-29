@@ -1,5 +1,5 @@
 import React from 'react';
-import PowerCalculator from './TurbineCalculator.js';
+import TurbineCalculator from './TurbineCalculator.js';
 import './App.css';
 
 
@@ -10,7 +10,7 @@ function App() {
         <h1>
           Wind Turbine Tool
         </h1>
-        <PowerCalculator />
+        <TurbineCalculator />
       </header>
       
     </div>
