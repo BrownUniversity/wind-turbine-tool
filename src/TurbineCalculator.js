@@ -1,6 +1,7 @@
 import React from 'react';
 import {calculateTurbinePower} from './turbine.js';
 import InputField from './InputField.js';
+import TurbineVisual from './TurbineVisual.js'
 import "./TurbineCalculator.css";
 
 class TurbineCalculator extends React.Component {
@@ -36,6 +37,7 @@ class TurbineCalculator extends React.Component {
 
     return (
       <div className="turbine-calculator">
+        <TurbineVisual />
         <form className="inputs" onChange={this.formUpdate}>
           <InputField 
             name="bladeLength" 
