@@ -1,17 +1,29 @@
 /* InputField component styles */
 
 .input-field {
-	width: 100%;
 	display: flex;
-	align-items: center;
-	margin: 0.5rem 0;
+	flex-direction: column;
 }
 
-.input-field label {
-	width: 35%;
-	text-align: right;
+.slider-text {
+	display: flex;
+	width: 100%;
+	align-items: baseline; 
+	justify-content: space-between;
+	margin: 0;
+	padding: 0;
 }
 
 .input-field input[type=range] {
-	width: 40%;
+	width: 100%;
+}
+
+.value {
+	font-size: 1.25rem;
+	font-weight: 600;
+}
+
+.value .unit {
+	font-size: 1rem;
+	font-weight: normal;
 }

@@ -27,7 +27,7 @@ class TurbineCalculator extends React.Component {
   calculatePower() {
     try {
       const powerInWatts = calculateTurbinePower(this.state.windVelocity, this.state.towerHeight, this.state.bladeLength, this.state.altitude);
-      return (powerInWatts/1000).toLocaleString(undefined, { maximumFractionDigits: 0 })  + " KW";
+      return <h2 className="results">{(powerInWatts/1000).toLocaleString(undefined, { maximumFractionDigits: 0 })}<span className="unit"> KW</span></h2>;
     } catch( error ) {
       return error.message;
     }
@@ -39,7 +39,7 @@ class TurbineCalculator extends React.Component {
       <div className="turbine-calculator">
         <h1>Calculating wind power</h1>
         <TurbineVisual />
-        <h2 className="results">{this.calculatePower()}</h2>
+        {this.calculatePower()}
         <form className="inputs" onChange={this.formUpdate}>
           <InputField 
             name="bladeLength" 
@@ -51,12 +51,12 @@ class TurbineCalculator extends React.Component {
             onChange={this.update}
           />
           <InputField 
-            name="windVelocity" 
-            min="0"
-            max="24.6"
-            value={this.state.windVelocity} 
-            label="Wind velocity" 
-            unit="m/s"
+            name="towerHeight" 
+            min={Math.max(20, this.state.bladeLength)}
+            max="200"
+            value={this.state.towerHeight} 
+            label="Tower height" 
+            unit="m"
             onChange={this.update}
           />
           <InputField 
@@ -69,12 +69,12 @@ class TurbineCalculator extends React.Component {
             onChange={this.update}
           />
           <InputField 
-            name="towerHeight" 
-            min={Math.max(20, this.state.bladeLength)}
-            max="200"
-            value={this.state.towerHeight} 
-            label="Tower height" 
-            unit="m"
+            name="windVelocity" 
+            min="0"
+            max="24.6"
+            value={this.state.windVelocity} 
+            label="Wind velocity" 
+            unit="m/s"
             onChange={this.update}
           />
         </form>
