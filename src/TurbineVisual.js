@@ -51,7 +51,6 @@ function TurbineVisual(props) {
         <path id='tower' className='tower' d='M276,295.28H251.57l-17.43,801.41c0,9.32,59.29,9.32,59.29,0Z' />
         <g id='blades-layer'>
             <use width='18.36' height='110.39' transform='matrix(1.45 0 0 1.45 250.5 136.05)' xlinkHref='#Blade' />
-            <circle id='outer-circle' className='outer-circle' cx='263.78' cy='295.28' r='160.28' />
             <use width='18.36' height='110.39' transform='rotate(-120 177.81 154.942) scale(1.45)' xlinkHref='#Blade' />
             <use width='18.36' height='110.39' transform='matrix(-.72 1.25 -1.25 -.72 408.32 363.4)' xlinkHref='#Blade' />
             <circle id='axil' className='axil' cx='263.78' cy='295.28' r='14.7' />

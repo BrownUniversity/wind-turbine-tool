@@ -37,12 +37,6 @@
   fill: url(#linear-gradient-6);
 }
 
-.outer-circle {
-  fill: none;
-  stroke: #fff;
-  stroke-miterlimit: 10;
-}
-
 .axil {
   fill: url(#radial-gradient-2);
 }
