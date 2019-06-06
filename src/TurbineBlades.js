@@ -28,8 +28,8 @@ class TurbineBlades extends React.Component {
             <svg className="turbine-blades" viewBox="-100 -100 200 200" overflow="visible" x={this.props.x} y={this.props.y} width={this.props.width}>
               <defs>
                 <symbol  id="Blade" viewBox="-7.87 -100 15.73 100" overflow="visible"> 
-                  <polyline class="blade-side-2" points="0,0 2,-2.09 2.25,-100 -2.25,-100 -7.87,-13.48 0,0 		"/>
-                  <polygon class="blade-side-1" points="0,-100 2.25,-100 12.87,-13.48 0,0 		"/>              
+                  <polyline class="blade-side-2" points="0,0 -2,-2.09 -2.25,-100 2.25,-100 7.87,-13.48 0,0 		"/>
+                  <polygon class="blade-side-1" points="0,-100 -2.25,-100 -12.87,-13.48 0,0 		"/>              
                 </symbol>
               </defs>
 
