@@ -1,6 +1,6 @@
 /* TurbineVisual component styles */
 
-.turbine-visual svg {
+.turbine-visual .root-svg {
   position: absolute;
   top: 0;
   left: 0;

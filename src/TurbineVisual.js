@@ -1,10 +1,11 @@
 import React from 'react';
+import TurbineBlades from './TurbineBlades'
 import "./TurbineVisual.css";
 
 function TurbineVisual(props) {
   return (
   <div className="turbine-visual">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" preserveAspectRatio="xMinYMin slice">
+    <svg className="root-svg" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" preserveAspectRatio="xMinYMin slice">
       <defs>
           <linearGradient id="linear-gradient" y1="55.2" x2="18.36" y2="55.2" gradientUnits="userSpaceOnUse">
               <stop offset="0" stopColor="#fff" />
@@ -33,7 +34,7 @@ function TurbineVisual(props) {
           </linearGradient>
           <linearGradient id='linear-gradient-6' x1='234.14' y1='699.48' x2='293.43' y2='699.48' xlinkHref='#linear-gradient' />
           <radialGradient id='radial-gradient-2' cx='263.78' cy='295.28' r='14.7' xlinkHref='#linear-gradient' />
-          <symbol id="Blade" data-name="Blade" viewBox="0 0 18.36 110.39">
+          <symbol id="Blade-Old" data-name="Blade-Old" viewBox="0 0 18.36 110.39">
               <path id="blade-1" className="cls-1" d="M9.18,110.39,0,94.45,5.18,3.78A4,4,0,0,1,9.18,0h0a4,4,0,0,1,4,3.78l5.18,90.67Z"
               />
           </symbol>
@@ -47,15 +48,17 @@ function TurbineVisual(props) {
         <rect id="sea" className="sea" y="790.52" width="1920" height="289.48"/>
       </g>
 
-			<g id='turbine-layer'>
+      {/* <g id='turbine-layer'>
         <path id='tower' className='tower' d='M276,295.28H251.57l-17.43,801.41c0,9.32,59.29,9.32,59.29,0Z' />
         <g id='blades-layer'>
-            <use width='18.36' height='110.39' transform='matrix(1.45 0 0 1.45 250.5 136.05)' xlinkHref='#Blade' />
-            <use width='18.36' height='110.39' transform='rotate(-120 177.81 154.942) scale(1.45)' xlinkHref='#Blade' />
-            <use width='18.36' height='110.39' transform='matrix(-.72 1.25 -1.25 -.72 408.32 363.4)' xlinkHref='#Blade' />
+            <use width='18.36' height='110.39' transform='matrix(1.45 0 0 1.45 250.5 136.05)' xlinkHref='#Blade-Old' />
+            <use width='18.36' height='110.39' transform='rotate(-120 177.81 154.942) scale(1.45)' xlinkHref='#Blade-Old' />
+            <use width='18.36' height='110.39' transform='matrix(-.72 1.25 -1.25 -.72 408.32 363.4)' xlinkHref='#Blade-Old' />
             <circle id='axil' className='axil' cx='263.78' cy='295.28' r='14.7' />
         </g>
-    </g>
+      </g> */}
+
+      <TurbineBlades speed="0.0" x="100" y="-250" width="350"/>
     </svg>
   </div>
   );
