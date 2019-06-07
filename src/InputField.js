@@ -4,9 +4,9 @@ import "./InputField.css";
 function InputField(props){
   return (
     <div className="input-field">
-      <p class="slider-text">
+      <p className="slider-text">
         <label htmlFor={props.name}>{props.label}</label> 
-        <span class="value">{props.value}<span class="unit"> {props.unit}</span></span>
+        <span className="value">{props.value}<span className="unit"> {props.unit}</span></span>
       </p>
       <input name={props.name} type="range" {...props} />
     </div>
