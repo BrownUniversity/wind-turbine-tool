@@ -16,7 +16,7 @@ class TurbineTower extends React.Component {
                 <polygon className="tower-shadow" points={`-1.5,0 -${towerHeightScale * 14},0 -${towerHeightScale * 5},-${towerHeight} -1,-${towerHeight}`}/>
               </g>
               <TurbineBlades 
-                windVelocity={this.props.windVelocity} bladeLength={80}  x="-100" y={bladeYOffset} 
+                windVelocity={this.props.windVelocity} bladeLength={this.props.bladeLength}  x="-100" y={bladeYOffset} 
                 width="200"
               />
             </svg>

@@ -3,6 +3,8 @@ import TurbineTower from './TurbineTower'
 import "./TurbineVisual.css";
 
 function TurbineVisual(props) {
+  const windVelocity = props.windVelocity <= 15 ? props.windVelocity : 15
+
   return (
   <div className="turbine-visual">
     <svg className="root-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMinYMin slice" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" >
@@ -48,7 +50,11 @@ function TurbineVisual(props) {
         <rect id="sea" className="sea" y="790.52" width="1920" height="289.48"/>
       </g>
       
-      <TurbineTower windVelocity="4" towerHeight={200} bladeLength={80} x="-550" y="1000"/>
+      <TurbineTower windVelocity={windVelocity} towerHeight={70} bladeLength={20} x="150" y="720"/>
+      <TurbineTower windVelocity={windVelocity} towerHeight={70} bladeLength={20} x="400" y="660"/>
+      <TurbineTower windVelocity={windVelocity} towerHeight={70} bladeLength={20} x="650" y="690"/>
+
+      <TurbineTower windVelocity={windVelocity} towerHeight={props.towerHeight} bladeLength={props.bladeLength} x="-550" y="1000"/>
     </svg>
   </div>
   );
