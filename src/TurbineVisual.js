@@ -1,11 +1,11 @@
 import React from 'react';
-import TurbineBlades from './TurbineBlades'
+import TurbineTower from './TurbineTower'
 import "./TurbineVisual.css";
 
 function TurbineVisual(props) {
   return (
   <div className="turbine-visual">
-    <svg className="root-svg" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" preserveAspectRatio="xMinYMin slice">
+    <svg className="root-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMinYMin slice" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" >
       <defs>
           <linearGradient id="linear-gradient" y1="55.2" x2="18.36" y2="55.2" gradientUnits="userSpaceOnUse">
               <stop offset="0" stopColor="#fff" />
@@ -47,11 +47,13 @@ function TurbineVisual(props) {
         <path id="hills" className="hills" d="M1920.5,1080H-.5V231.2c93.68,3.38,176.47,9.17,265.65,17.55,85.25,8,148.15-5.06,239.77.88,157.6,10.2,322.88-2.07,477.53-19.25,47.73-5.3,66.86-9.94,111.75-8.25,44.56,1.68,84.94,9.39,131.38,10.88,88.79,2.85,174.27-12.65,260.54-10.25,58,1.62,130.75,18.48,193.24,24.15,84.58,7.68,160.59-5,241.14-16.92Z"/>
         <rect id="sea" className="sea" y="790.52" width="1920" height="289.48"/>
       </g>
-
-      <TurbineBlades speed="0.1" x="100" y="-250" width="350"/>
+      
+      <TurbineTower speed="0.1" towerHeight={35*1} bladeDiameter={35*1} x="-550" y="1000"/>
     </svg>
   </div>
   );
+
+  //Scale is 20 to 35 or (1.5 times)
 }
 
 export default TurbineVisual;
