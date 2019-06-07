@@ -41,6 +41,7 @@ class TurbineCalculator extends React.Component {
         <TurbineVisual 
           bladeLength={this.state.bladeLength} 
           towerHeight={this.state.towerHeight}
+          altitude={this.state.altitude}
           windVelocity={this.state.windVelocity}
         />
         {this.calculatePower()}

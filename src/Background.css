@@ -1,0 +1,19 @@
+#sky {
+  fill: url(#sky-gradient);
+}
+
+#mountain-far {
+  fill: url(#mountain-far-gradient);
+}
+
+#mountain-near {
+  fill: url(#mountain-near-gradient);
+}
+
+#hills {
+  fill: url(#hills-gradient);
+}
+
+#sea {
+  fill: url(#sea-gradient);
+}
