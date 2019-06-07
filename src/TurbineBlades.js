@@ -13,10 +13,12 @@ class TurbineBlades extends React.Component {
     }
 
     onAnimationFrame(time) {
-        const speed = Math.abs(this.props.speed) > 1 ? 1 : Math.abs(this.props.speed);
+        const windVelocity = this.props.windVelocity > 3 ? (this.props.windVelocity - 3) / 12 : 0;
+
+        // const speed = Math.abs(this.props.speed) > 1 ? 1 : Math.abs(this.props.speed);
 
         this.setState({
-          angle:  (this.state.angle + speed * 6) % 360
+          angle:  (this.state.angle + windVelocity * 6) % 360
         })
 
         this.blades.style.transform = `rotate(${this.state.angle}deg)`;
@@ -24,17 +26,17 @@ class TurbineBlades extends React.Component {
     }
  
     render() {
-        const bladeRadius = this.props.bladeDiameter;
+        const bladeLength = 350 * this.props.bladeLength / 200;
 
-        const bladeWidthScale = 0.6 * bladeRadius / 175 + 0.4;
-        const scale = bladeRadius / 175;
+        const bladeWidthScale = 0.6 * bladeLength / 175 + 0.4;
+        const scale = bladeLength / 175;
 
         return (
             <svg className="turbine-blades" viewBox="-100 -100 200 200" preserveAspectRatio="xMaxYMid meet" overflow="visible" x={this.props.x} y={this.props.y} width={this.props.width}>
               <defs>
                 <symbol  id="Blade" viewBox="-7.87 -100 15.73 100" overflow="visible"> 
-                  <polyline class="blade-side-2" points={`0,0 -2,-2.09 -2.25,-175 2.25,-175 10,-12 0,0`}/>
-                  <polygon class="blade-side-1" points={`0,-175 -2.25,-175 -16,-40 0,0 		`}/>
+                  <polyline className="blade-side-2" points={`0,0 -2,-2.09 -2.25,-175 2.25,-175 10,-12 0,0`}/>
+                  <polygon className="blade-side-1" points={`0,-175 -2.25,-175 -16,-40 0,0 		`}/>
                 </symbol>
               </defs>
 

@@ -48,7 +48,7 @@ function TurbineVisual(props) {
         <rect id="sea" className="sea" y="790.52" width="1920" height="289.48"/>
       </g>
       
-      <TurbineTower speed="0.1" towerHeight={35*1} bladeDiameter={35*1} x="-550" y="1000"/>
+      <TurbineTower windVelocity="4" towerHeight={200} bladeLength={80} x="-550" y="1000"/>
     </svg>
   </div>
   );
