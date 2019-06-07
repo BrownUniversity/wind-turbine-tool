@@ -57,7 +57,6 @@ function air_pressure(T) {
     P_s = 101300; // Air pressure (Pa) at sea level
 
   const exponent = g / (a * R);
-  console.log(exponent)
 
   return P_s * Math.pow(T / T_s, exponent);
 }

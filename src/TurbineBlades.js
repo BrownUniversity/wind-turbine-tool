@@ -7,8 +7,11 @@ class TurbineBlades extends React.Component {
     constructor(props) {
       super(props);
 
+      //Makes different turbines look less regular
+      const angleOffset = Math.random() * 120;
+
       this.state = {
-        angle: 0
+        angle: 0 + angleOffset
       }
     }
 
