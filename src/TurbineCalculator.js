@@ -1,5 +1,6 @@
 import React from 'react';
 import {calculateTurbinePower} from './turbine.js';
+import ToggleSwitch from "./ToggleSwitch"
 import InputField from './InputField.js';
 import TurbineVisual from './TurbineVisual.js'
 import "./TurbineCalculator.css";
@@ -51,6 +52,7 @@ class TurbineCalculator extends React.Component {
         />
         {this.calculatePower()}
         <form className="inputs" onChange={this.formUpdate}>
+          <ToggleSwitch />
           <InputField 
             name="bladeLength" 
             min="20"
