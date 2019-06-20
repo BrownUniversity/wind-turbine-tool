@@ -13,17 +13,27 @@ class TurbineCalculator extends React.Component {
       windVelocity: 0,
       towerHeight: 80,
       bladeLength: 30,
-      altitude: 0
+      altitude: 0,
+      metricUnits: true
     }
 
     this.update = this.update.bind(this);
   }
 
   update(event) {
-    this.setState({
-      [event.target.name]: +event.target.value
-    });
+    if(event.target.type !== "checkbox") {
+      this.setState({
+        [event.target.name]: +event.target.value      
+      });
+    } else {
+      this.setState({
+        [event.target.name]: event.target.checked      
+      });
+    }
+
   }
+
+
 
   calculatePower() {
     try {
@@ -52,7 +62,7 @@ class TurbineCalculator extends React.Component {
         />
         {this.calculatePower()}
         <form className="inputs" onChange={this.formUpdate}>
-          <ToggleSwitch />
+          <ToggleSwitch name="metricUnits" label="Units" onLabel="Metric" offLabel="U.S." value={this.state.metricUnits} onChange={this.update}/>
           <InputField 
             name="bladeLength" 
             min="20"
