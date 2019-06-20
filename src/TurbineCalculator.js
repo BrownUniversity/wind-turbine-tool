@@ -1,7 +1,7 @@
 import React from 'react';
 import {calculateTurbinePower} from './turbine.js';
-import ToggleSwitch from "./ToggleSwitch"
-import InputField from './InputField.js';
+import InputField from "./InputField";
+import SelectInput from './SelectInput';
 import TurbineVisual from './TurbineVisual.js'
 import "./TurbineCalculator.css";
 
@@ -14,7 +14,7 @@ class TurbineCalculator extends React.Component {
       towerHeight: 80,
       bladeLength: 30,
       altitude: 0,
-      metricUnits: true
+      units: "metric"
     }
 
     this.update = this.update.bind(this);
@@ -65,7 +65,7 @@ class TurbineCalculator extends React.Component {
         />
         {this.calculatePower()}
         <form className="inputs" onChange={this.formUpdate}>
-          <ToggleSwitch name="metricUnits" label="Units" onLabel="Metric" offLabel="U.S." value={this.state.metricUnits} onChange={this.update}/>
+          <SelectInput name="units" value={this.state.units} onChange={this.update}/>
           <InputField 
             name="bladeLength" 
             min="20"
