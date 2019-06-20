@@ -21,16 +21,19 @@ class TurbineCalculator extends React.Component {
   }
 
   update(event) {
-    if(event.target.type !== "checkbox") {
-      this.setState({
-        [event.target.name]: +event.target.value      
-      });
+    let value;
+
+    if(event.target.type === "range") {
+      value = +event.target.value;
+    } else if(event.target.type === "checkbox") {
+      value = event.target.checked;
     } else {
-      this.setState({
-        [event.target.name]: event.target.checked      
-      });
+      value = event.target.value;
     }
 
+    this.setState({
+      [event.target.name]: value      
+    });
   }
 
 
