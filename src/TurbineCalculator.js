@@ -36,8 +36,6 @@ class TurbineCalculator extends React.Component {
     });
   }
 
-
-
   calculatePower() {
     try {
       const powerInWatts = calculateTurbinePower(this.state.windVelocity, this.state.towerHeight, this.state.bladeLength, this.state.altitude);
@@ -53,6 +51,7 @@ class TurbineCalculator extends React.Component {
   }
   
   render() {
+    let unitsOptions = [{label: 'Metric', value: 'metric'}, {label: 'U.S.', value: 'us'}];
 
     return (
       <div className="turbine-calculator">
@@ -65,7 +64,7 @@ class TurbineCalculator extends React.Component {
         />
         {this.calculatePower()}
         <form className="inputs" onChange={this.formUpdate}>
-          <SelectInput name="units" value={this.state.units} onChange={this.update}/>
+          <SelectInput name="units" label="Units" value={this.state.units} options={unitsOptions} onChange={this.update}/>
           <InputField 
             name="bladeLength" 
             min="20"
