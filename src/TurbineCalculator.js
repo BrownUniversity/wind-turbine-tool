@@ -55,7 +55,6 @@ class TurbineCalculator extends React.Component {
 
     return (
       <div className="turbine-calculator">
-        <h1>Calculating wind power</h1>
         <TurbineVisual 
           bladeLength={this.state.bladeLength} 
           towerHeight={this.state.towerHeight}
@@ -92,6 +91,7 @@ class TurbineCalculator extends React.Component {
             value={this.state.altitude} 
             label="Altitude" 
             unit="length"
+            step="10"
             system={this.state.units}
             onChange={this.update}
           />

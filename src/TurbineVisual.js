@@ -13,11 +13,11 @@ function TurbineVisual(props) {
       <Background altitude={props.altitude} maxAltitude="5000"/>
 
       {/*Background turbines*/}
-      <TurbineTower windVelocity={windVelocity} towerHeight={70} bladeLength={20} x="150" y="760"/>
-      <TurbineTower windVelocity={windVelocity} towerHeight={70} bladeLength={20} x="400" y="700"/>
-      <TurbineTower windVelocity={windVelocity} towerHeight={70} bladeLength={20} x="650" y="740"/>
+      <TurbineTower windVelocity={windVelocity} towerHeight={70} bladeLength={20} x="-100" y="910"/>
+      <TurbineTower windVelocity={windVelocity} towerHeight={70} bladeLength={20} x="240" y="850"/>
+      <TurbineTower windVelocity={windVelocity} towerHeight={70} bladeLength={20} x="590" y="880"/>
 
-      <TurbineTower windVelocity={windVelocity} towerHeight={props.towerHeight} bladeLength={props.bladeLength} x="-550" y="1000"/>
+      <TurbineTower windVelocity={windVelocity} towerHeight={props.towerHeight} bladeLength={props.bladeLength} x="-600" y="1000"/>
     </svg>
   </div>
   );

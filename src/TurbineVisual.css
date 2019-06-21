@@ -1,7 +1,8 @@
 /* TurbineVisual component styles */
 
-.turbine-visual .root-svg {
+.turbine-visual, .turbine-visual .root-svg {
   position: absolute;
+  box-sizing: border-box;
   top: 0;
   left: 0;
   height: 100%;
