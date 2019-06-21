@@ -1,6 +1,7 @@
 import React from 'react';
 import {calculateTurbinePower} from './turbine.js';
-import InputField from './InputField.js';
+import InputField from "./InputField";
+import SelectInput from './SelectInput';
 import TurbineVisual from './TurbineVisual.js'
 import "./TurbineCalculator.css";
 
@@ -12,15 +13,26 @@ class TurbineCalculator extends React.Component {
       windVelocity: 0,
       towerHeight: 80,
       bladeLength: 30,
-      altitude: 0
+      altitude: 0,
+      units: "us"
     }
 
     this.update = this.update.bind(this);
   }
 
   update(event) {
+    let value;
+
+    if(event.target.type === "range") {
+      value = +event.target.value;
+    } else if(event.target.type === "checkbox") {
+      value = event.target.checked;
+    } else {
+      value = event.target.value;
+    }
+
     this.setState({
-      [event.target.name]: +event.target.value
+      [event.target.name]: value      
     });
   }
 
@@ -37,8 +49,9 @@ class TurbineCalculator extends React.Component {
       return error.message;
     }
   }
-  
+
   render() {
+    let unitsOptions = [{label: 'Metric', value: 'metric'}, {label: 'U.S.', value: 'us'}];
 
     return (
       <div className="turbine-calculator">
@@ -51,13 +64,15 @@ class TurbineCalculator extends React.Component {
         />
         {this.calculatePower()}
         <form className="inputs" onChange={this.formUpdate}>
+          <SelectInput name="units" label="Units" value={this.state.units} options={unitsOptions} onChange={this.update}/>
           <InputField 
             name="bladeLength" 
             min="20"
             max={Math.min(80, this.state.towerHeight)}
             value={this.state.bladeLength} 
             label="Blade length" 
-            unit="m"
+            unit="length"
+            system={this.state.units}
             onChange={this.update}
           />
           <InputField 
@@ -66,16 +81,18 @@ class TurbineCalculator extends React.Component {
             max="200"
             value={this.state.towerHeight} 
             label="Tower height" 
-            unit="m"
+            unit="length"
+            system={this.state.units}
             onChange={this.update}
           />
           <InputField 
             name="altitude" 
             min="0"
-            max="10000"
+            max="5000"
             value={this.state.altitude} 
             label="Altitude" 
-            unit="m"
+            unit="length"
+            system={this.state.units}
             onChange={this.update}
           />
           <InputField 
@@ -84,7 +101,9 @@ class TurbineCalculator extends React.Component {
             max="24.6"
             value={this.state.windVelocity} 
             label="Wind velocity" 
-            unit="m/s"
+            unit="speed"
+            step="0.2"
+            system={this.state.units}
             onChange={this.update}
           />
         </form>

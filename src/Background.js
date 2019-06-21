@@ -4,7 +4,7 @@ import './Background.css';
 class Background extends React.Component {
  
     render() {
-				const offset = 450 * this.props.altitude / 10000;
+				const offset = 450 * this.props.altitude / this.props.maxAltitude;
 
 				const seaYOffset = offset * 12;
 				const hillsYOffset = offset * 1.0;
