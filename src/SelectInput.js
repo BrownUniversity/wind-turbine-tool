@@ -2,8 +2,8 @@ import React from "react";
 import "./SelectInput.css";
 
 function SelectInput(props) {
-	let optionElements = props.options.map( (option) => {
-		return <option value={option.value}>{option.label}</option>
+	let optionElements = props.options.map( (option, index) => {
+		return <option key={index} value={option.value}>{option.label}</option>
 	})
 
 	return (
