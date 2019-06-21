@@ -92,6 +92,7 @@ class TurbineCalculator extends React.Component {
             value={this.state.altitude} 
             label="Altitude" 
             unit="length"
+            step="10"
             system={this.state.units}
             onChange={this.update}
           />
