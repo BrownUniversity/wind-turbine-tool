@@ -88,7 +88,7 @@ class TurbineCalculator extends React.Component {
           <InputField 
             name="altitude" 
             min="0"
-            max="10000"
+            max="5000"
             value={this.state.altitude} 
             label="Altitude" 
             unit="length"
