@@ -140,7 +140,7 @@ function convert(value, type, system) {
       results = value / mpsInMph;
     }
   }
-  return results ? Math.floor(results): results;
+  return results ? Math.round(results): results;
 }
 
 /**
