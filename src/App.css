@@ -1,5 +1,23 @@
 /* App component styles */
 
 .app {
+	position: relative;
+	box-sizing: border-box;
 	height: 100%;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.app h1 {
+	margin: 0;
+	font-size: 6vmin;
+	font-weight: normal;
+}
+
+@media (orientation: landscape) and (min-width: 896px) {
+	.app {
+		justify-content: flex-start;
+	}
 }

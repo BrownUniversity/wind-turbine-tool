@@ -55,7 +55,6 @@ class TurbineCalculator extends React.Component {
 
     return (
       <div className="turbine-calculator">
-        <h1>Calculating wind power</h1>
         <TurbineVisual 
           bladeLength={this.state.bladeLength} 
           towerHeight={this.state.towerHeight}
