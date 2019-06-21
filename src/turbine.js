@@ -117,12 +117,30 @@ function governor(ratedSpeed, currentSpeed) {
   return ratedSpeed;
 }
 
-function convertMPHtoMPS(mph) {
-  return mph * 0.44704;
-}
+function convert(value, type, system) {
+  const mpsInMph = 0.44704;
+  const metersInFoot = 0.3048;
 
-function convertFeetToMeters(feet) {
-  return feet * 0.3048;
+  let results = null;
+
+  if(type === "length") {
+    if(system === "metric") {
+      //convert to metric
+      results = value * metersInFoot;
+    } else if(system === "us"){
+      //convert to U.S.
+      results = value / metersInFoot;
+    }
+  } else if(type === "speed"){
+    if(system === "metric") {
+      //convert to metric
+      results = value * mpsInMph;
+    } else if(system === "us"){
+      //convert to U.S.
+      results = value / mpsInMph;
+    }
+  }
+  return results ? Math.floor(results): results;
 }
 
 /**
@@ -166,6 +184,5 @@ function calculateTurbinePower(windVelocity, towerHeight, bladeLength, elevation
 
 export {
   calculateTurbinePower,
-  convertMPHtoMPS,
-  convertFeetToMeters,
+  convert
 };

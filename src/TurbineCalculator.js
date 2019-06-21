@@ -49,7 +49,7 @@ class TurbineCalculator extends React.Component {
       return error.message;
     }
   }
-  
+
   render() {
     let unitsOptions = [{label: 'Metric', value: 'metric'}, {label: 'U.S.', value: 'us'}];
 
@@ -71,7 +71,8 @@ class TurbineCalculator extends React.Component {
             max={Math.min(80, this.state.towerHeight)}
             value={this.state.bladeLength} 
             label="Blade length" 
-            unit="m"
+            unit="length"
+            system={this.state.units}
             onChange={this.update}
           />
           <InputField 
@@ -80,7 +81,8 @@ class TurbineCalculator extends React.Component {
             max="200"
             value={this.state.towerHeight} 
             label="Tower height" 
-            unit="m"
+            unit="length"
+            system={this.state.units}
             onChange={this.update}
           />
           <InputField 
@@ -89,7 +91,8 @@ class TurbineCalculator extends React.Component {
             max="10000"
             value={this.state.altitude} 
             label="Altitude" 
-            unit="m"
+            unit="length"
+            system={this.state.units}
             onChange={this.update}
           />
           <InputField 
@@ -98,7 +101,9 @@ class TurbineCalculator extends React.Component {
             max="24.6"
             value={this.state.windVelocity} 
             label="Wind velocity" 
-            unit="m/s"
+            unit="speed"
+            step="0.2"
+            system={this.state.units}
             onChange={this.update}
           />
         </form>
