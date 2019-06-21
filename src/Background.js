@@ -6,9 +6,9 @@ class Background extends React.Component {
     render() {
 				const offset = 450 * this.props.altitude / this.props.maxAltitude;
 
-				const seaYOffset = offset * 12;
-				const hillsYOffset = offset * 1.0;
-				const mountainNearYOffset = offset * 0.75;
+				const seaYOffset = offset * 70 + 30;
+				const hillsYOffset = offset * 1.25;
+				const mountainNearYOffset = offset * 0.95;
 				const mountainFarYOffset = offset * 0.6;
 
         return (
@@ -36,8 +36,8 @@ class Background extends React.Component {
 											<stop offset="1" stopColor="#98b286" />
 									</linearGradient>
 									<linearGradient id="sea-gradient" x1="0" y1="1" x2="0" y2="0">
-											<stop offset="0.35" stopColor="#557899" />
-											<stop offset="1" stopColor="#77b4e4" />
+											<stop offset="0.35" stopColor="#3d5d7a" />
+											<stop offset="1" stopColor="#6aa0ca" />
 									</linearGradient>
 									<linearGradient id='linear-gradient-6' x1='234.14' y1='699.48' x2='293.43' y2='699.48' xlinkHref='#linear-gradient' />
 									<radialGradient id='radial-gradient-2' cx='263.78' cy='295.28' r='14.7' xlinkHref='#linear-gradient' />
