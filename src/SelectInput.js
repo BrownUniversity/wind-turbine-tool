@@ -9,7 +9,7 @@ function SelectInput(props) {
 	return (
 		<div className="select-input">
 			<label htmlFor={props.name}>{props.label}</label>
-			<select name={props.name} onChange={props.onChange}>
+			<select name={props.name} value={props.value} onChange={props.onChange} >
 				{ optionElements }
 			</select>
 		</div>		

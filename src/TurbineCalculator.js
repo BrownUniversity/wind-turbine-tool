@@ -14,7 +14,7 @@ class TurbineCalculator extends React.Component {
       towerHeight: 80,
       bladeLength: 30,
       altitude: 0,
-      units: "metric"
+      units: "us"
     }
 
     this.update = this.update.bind(this);
