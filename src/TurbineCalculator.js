@@ -24,7 +24,13 @@ class TurbineCalculator extends React.Component {
     let value;
 
     if(event.target.type === "range") {
-      value = +event.target.value;
+      if(event.target.name === "bladeLength") {
+        value = Math.min(+event.target.value, this.state.towerHeight);
+      } else if( event.target.name === "towerHeight"){
+        value = Math.max(+event.target.value, this.state.bladeLength);
+      } else {
+        value = +event.target.value;
+      }
     } else if(event.target.type === "checkbox") {
       value = event.target.checked;
     } else {
@@ -67,7 +73,7 @@ class TurbineCalculator extends React.Component {
           <InputField 
             name="bladeLength" 
             min="20"
-            max={Math.min(80, this.state.towerHeight)}
+            max="80"  /*  */
             value={this.state.bladeLength} 
             label="Blade length" 
             unit="length"
@@ -76,7 +82,7 @@ class TurbineCalculator extends React.Component {
           />
           <InputField 
             name="towerHeight" 
-            min={Math.max(20, this.state.bladeLength)}
+            min="20" /* {Math.max(20, this.state.bladeLength)} */
             max="200"
             value={this.state.towerHeight} 
             label="Tower height" 
