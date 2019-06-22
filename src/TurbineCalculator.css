@@ -7,7 +7,7 @@
 
 .results {
 	text-align: right;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 }
 
 .results .unit {
@@ -21,7 +21,7 @@
 }
 
 .results h2 {
-	font-size: 5rem;
+	font-size: 12vh;
 	margin: 0;
 }
 
@@ -31,11 +31,7 @@
 }
 
 .inputs {
-	min-width: 400px;
-}
-
-.inputs {
-	padding: 0.75rem;
+	padding: 1.5rem;
 	background-color: rgba(255, 255, 255, 0.35);
 	border-radius: 10px;
 }
@@ -48,6 +44,7 @@
 	}
 
 	.inputs {
+		min-width: 400px;
 		margin-top: 1rem;
 	}
 
