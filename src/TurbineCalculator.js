@@ -61,9 +61,9 @@ class TurbineCalculator extends React.Component {
 
     return (
       <div className="turbine-calculator">
-        
+
         {this.calculatePower()}
-        <form className="inputs" onChange={this.formUpdate}>
+        <form className="inputs" onChange={this.formUpdate} aria-label="Wind power calculator">
           <SelectInput name="units" label="Units" value={this.state.units} options={unitsOptions} onChange={this.update}/>
           <InputField 
             name="bladeLength" 
