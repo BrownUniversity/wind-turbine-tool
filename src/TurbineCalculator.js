@@ -12,7 +12,7 @@ class TurbineCalculator extends React.Component {
     this.state = {
       windVelocity: 0,
       towerHeight: 80,
-      bladeLength: 30,
+      bladeLength: 20,
       altitude: 0,
       units: "us"
     }
@@ -25,9 +25,9 @@ class TurbineCalculator extends React.Component {
 
     if(event.target.type === "range") {
       if(event.target.name === "bladeLength") {
-        value = Math.min(+event.target.value, this.state.towerHeight);
+        value = Math.min(+event.target.value, this.state.towerHeight / 2);
       } else if( event.target.name === "towerHeight"){
-        value = Math.max(+event.target.value, this.state.bladeLength);
+        value = Math.max(+event.target.value, this.state.bladeLength * 2);
       } else {
         value = +event.target.value;
       }
@@ -68,7 +68,7 @@ class TurbineCalculator extends React.Component {
           <InputField 
             name="bladeLength" 
             min="20"
-            max="80"  /*  */
+            max="80" 
             value={this.state.bladeLength} 
             label="Blade length" 
             unit="length"
@@ -77,7 +77,7 @@ class TurbineCalculator extends React.Component {
           />
           <InputField 
             name="towerHeight" 
-            min="20" /* {Math.max(20, this.state.bladeLength)} */
+            min="40"
             max="200"
             value={this.state.towerHeight} 
             label="Tower height" 
