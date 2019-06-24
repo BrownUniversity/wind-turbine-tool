@@ -8,10 +8,11 @@ function SelectInput(props) {
 
 	return (
 		<div className="select-input">
-			<label htmlFor={props.name}>{props.label}</label>
-			<select name={props.name} value={props.value} onChange={props.onChange} >
-				{ optionElements }
-			</select>
+			<label htmlFor={props.name}>{props.label} 
+				<select id={props.name} name={props.name} value={props.value} onChange={props.onChange} >
+					{ optionElements }
+				</select>
+			</label>
 		</div>		
 		);
 }
