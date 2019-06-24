@@ -61,12 +61,7 @@ class TurbineCalculator extends React.Component {
 
     return (
       <div className="turbine-calculator">
-        <TurbineVisual 
-          bladeLength={this.state.bladeLength} 
-          towerHeight={this.state.towerHeight}
-          altitude={this.state.altitude}
-          windVelocity={this.state.windVelocity}
-        />
+        
         {this.calculatePower()}
         <form className="inputs" onChange={this.formUpdate}>
           <SelectInput name="units" label="Units" value={this.state.units} options={unitsOptions} onChange={this.update}/>
@@ -113,6 +108,12 @@ class TurbineCalculator extends React.Component {
             onChange={this.update}
           />
         </form>
+        <TurbineVisual 
+          bladeLength={this.state.bladeLength} 
+          towerHeight={this.state.towerHeight}
+          altitude={this.state.altitude}
+          windVelocity={this.state.windVelocity}
+        />
       </div>
     )
   }
