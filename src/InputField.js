@@ -23,13 +23,13 @@ function InputField(props){
   let value = props.system === "us" ? convert(props.value, props.unit, props.system) : props.value;
 
   return (
-    <div className="input-field">
+    <label htmlFor={props.name} className="input-field">
       <p className="slider-text">
-        <label htmlFor={props.name}>{props.label}</label> 
+        <span class="label">{props.label} </span> 
         <span className="value">{value}<span className="unit"> {units(props.unit, props.system)}</span></span>
       </p>
-      <input name={props.name} type="range" {...props} />
-    </div>
+      <input id={props.name} name={props.name} type="range" {...props} />
+    </label>
   );
 }
 
