@@ -25,9 +25,9 @@ class TurbineCalculator extends React.Component {
 
     if(event.target.type === "range") {
       if(event.target.name === "bladeLength") {
-        value = Math.min(+event.target.value, this.state.towerHeight);
+        value = Math.min(+event.target.value, this.state.towerHeight / 2);
       } else if( event.target.name === "towerHeight"){
-        value = Math.max(+event.target.value, this.state.bladeLength);
+        value = Math.max(+event.target.value, this.state.bladeLength * 2);
       } else {
         value = +event.target.value;
       }
