@@ -66,16 +66,6 @@ class TurbineCalculator extends React.Component {
         <form className="inputs" onChange={this.formUpdate} aria-label="Wind power calculator">
           <SelectInput name="units" label="Units" value={this.state.units} options={unitsOptions} onChange={this.update}/>
           <InputField 
-            name="bladeLength" 
-            min="20"
-            max="80" 
-            value={this.state.bladeLength} 
-            label="Blade length" 
-            unit="length"
-            system={this.state.units}
-            onChange={this.update}
-          />
-          <InputField 
             name="towerHeight" 
             min="40"
             max="200"
@@ -86,13 +76,12 @@ class TurbineCalculator extends React.Component {
             onChange={this.update}
           />
           <InputField 
-            name="altitude" 
-            min="0"
-            max="5000"
-            value={this.state.altitude} 
-            label="Altitude" 
+            name="bladeLength" 
+            min="20"
+            max="80" 
+            value={this.state.bladeLength} 
+            label="Blade length" 
             unit="length"
-            step="10"
             system={this.state.units}
             onChange={this.update}
           />
@@ -104,6 +93,17 @@ class TurbineCalculator extends React.Component {
             label="Wind velocity" 
             unit="speed"
             step="0.2"
+            system={this.state.units}
+            onChange={this.update}
+          />
+          <InputField 
+            name="altitude" 
+            min="0"
+            max="5000"
+            value={this.state.altitude} 
+            label="Altitude" 
+            unit="length"
+            step="10"
             system={this.state.units}
             onChange={this.update}
           />
