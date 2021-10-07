@@ -2,6 +2,8 @@
 
 Tool for calculating the energy output of a wind turbine given a number of different parameters.
 
+![screenshot](https://user-images.githubusercontent.com/492003/136448160-81d5ccfa-beb2-4cc5-ad2e-f0bb898069d4.jpg)
+
 ## Scope
 
 ### Input parameters:
