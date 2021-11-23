@@ -32,12 +32,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/academic-technology-brown/wind-turbine-tool.git"
+    "url": "git+https://github.com/BrownUniversity/wind-turbine-tool.git"
   },
   "author": "Brown University",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/academic-technology-brown/wind-turbine-tool/issues"
+    "url": "https://github.com/BrownUniversity/wind-turbine-tool/issues"
   },
   "homepage": "."
 }
