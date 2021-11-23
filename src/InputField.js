@@ -25,7 +25,7 @@ function InputField(props){
   return (
     <label htmlFor={props.name} className="input-field">
       <p className="slider-text">
-        <span class="label">{props.label} </span> 
+        <span className="label">{props.label} </span> 
         <span className="value">{value}<span className="unit"> {units(props.unit, props.system)}</span></span>
       </p>
       <input id={props.name} name={props.name} type="range" {...props} />
